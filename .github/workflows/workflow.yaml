@@ -15,23 +15,17 @@ jobs:
         - name: setup nodeJs
           uses: actions/setup-node@v7
 
-        # - name: setup Java
-        #   uses: actions/setup-java@v6
-        #   with:
-        #     distribution: temurin
-        #     java-version: '25'
-        
-        # - name: run java
-        #   run: java --version
-
         - name: install dependencies
           run: npm install
 
-        # - name: run the built
-        #   run: ./gradlew build
+        - name: install mocha junit reporter
+          run: npm install --save-dev mocha-junit-reporter
 
-        - name: run node test
+        - name: run node test and mocha report
           run: npm run test
+          run: npx mocha --reporter mocha-junit-reporter
+          env:
+              MOCHA_FILE: ./junit-report.xml
 
 
       
