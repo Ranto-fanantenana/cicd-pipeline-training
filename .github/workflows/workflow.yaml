@@ -1,13 +1,10 @@
 name: CI test unit
-on:
+on: 
+  workflow_dispatch:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   schedule:
     # Exécute tous les jours à minuit UTC
     - cron: '0 0 * * 1-5'
-
 
 jobs:
     unit-test-job:
