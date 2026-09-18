@@ -29,5 +29,11 @@ jobs:
           env:
               MOCHA_FILE: ./junit-report.xml
 
+        - uses: actions/upload-artifact@v7
+          with:
+            name: mocha-report.txt
+            path: ./junit-report.xml
+          
+
 
       
