@@ -21,8 +21,10 @@ jobs:
         - name: install mocha junit reporter
           run: npm install --save-dev mocha-junit-reporter
 
-        - name: run node test and mocha report
+        - name: run node tes
           run: npm run test
+
+        - name: run mocha report
           run: npx mocha --reporter mocha-junit-reporter
           env:
               MOCHA_FILE: ./junit-report.xml
