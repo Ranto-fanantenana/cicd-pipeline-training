@@ -45,10 +45,10 @@ jobs:
         - name: setup nodeJs
           uses: actions/setup-node@v7
 
-        - name: install dependencies
+        - name: installing dependencies
           run: npm install
 
-        - name: run coverage test
+        - name: running coverage test
           run: npm run coverage
 
         - uses: actions/upload-artifact@v7
