@@ -48,6 +48,9 @@ jobs:
         - name: installing dependencies
           run: npm install
 
+        - name: install jest
+          run: npm install --save-dev jest
+
         - name: running coverage test
           run: npm run coverage
 
