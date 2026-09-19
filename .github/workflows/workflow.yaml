@@ -35,7 +35,26 @@ jobs:
           with:
             name: mocha-report.txt
             path: ./junit-report.xml
-          
+    coverage-test:
+      name: coverage test
+      runs-on: ubuntu-latest
+      steps:
+        - name: checkout
+          uses: actions/checkout@v7
+
+        - name: setup nodeJs
+          uses: actions/setup-node@v7
+
+        - name: install dependencies
+          run: npm install
+
+        - name: run coverage test
+          run: npm run coverage
+
+        - uses: actions/upload-artifact@v7
+          with:
+            name: coverage report
+            path: coverage
 
 
       
