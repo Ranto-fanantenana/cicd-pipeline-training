@@ -1,4 +1,4 @@
-name: CI test unit
+name: Github action training CI test unit
 on: 
   workflow_dispatch:
   push:
@@ -60,6 +60,29 @@ jobs:
           with:
             name: coverage report
             path: coverage
+
+    Dockerhub-login:
+      name: Dockerhub-login
+      needs: [unit-test-job, coverage-test]
+      runs-on: ubuntu-latest
+      steps:
+        - name: checkout
+          uses: actions/checkout@v7
+        
+        - name: dockur hub login
+          uses: docker/login-action@v4
+            with:
+              username: ${{ vars.DOCKERHUB_USERNAME }}
+              password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          
+
+
+            
+
+
+
+
+
 
 
       
