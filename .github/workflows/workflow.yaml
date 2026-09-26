@@ -71,9 +71,9 @@ jobs:
         
         - name: dockur hub login
           uses: docker/login-action@v4
-            with:
-              username: ${{ vars.DOCKERHUB_USERNAME }}
-              password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          with:
+            username: ${{ vars.DOCKERHUB_USERNAME }}
+            password: ${{ secrets.DOCKERHUB_PASSWORD }}
           
 
 
