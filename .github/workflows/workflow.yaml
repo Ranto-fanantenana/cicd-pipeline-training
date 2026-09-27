@@ -92,6 +92,7 @@ jobs:
             echo $IP
             docker ps
             docker run --rm alpine/curl http://$IP:8080/ 
+            docker ps
           
 
 
