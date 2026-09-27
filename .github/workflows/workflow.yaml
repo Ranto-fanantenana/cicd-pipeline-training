@@ -87,8 +87,8 @@ jobs:
 
         - name: test docker images
           run: |
-            docker run --name react-app -d -p 8080:8080 ${{ vars.DOCKERHUB_USERNAME }}/githubactionstrainingapp:${{ Github.sha }}
-            export IP=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ${{ vars.DOCKERHUB_USERNAME }}/githubactionstrainingapp)
+            docker run --name githubactionstrainingapp -d -p 8080:8080 ${{ vars.DOCKERHUB_USERNAME }}/githubactionstrainingapp:${{ Github.sha }}
+            export IP=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' githubactionstrainingapp)
             echo $IP
             docker ps
             docker run --rm alpine/curl http://$IP:8080/ 
