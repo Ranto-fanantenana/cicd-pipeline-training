@@ -93,6 +93,13 @@ jobs:
             docker ps
             docker run --rm alpine/curl http://$IP:8080/ 
             docker ps
+
+        - name: Push the docker image
+          uses: docker/build-push-action@v7
+          with:
+            context: .
+            push: true
+            tags: ${{ vars.DOCKERHUB_USERNAME }}/githubactionstrainingapp:${{ Github.sha }}  
           
 
 
